@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Cloud shapes -->
+  <circle cx="19" cy="25" r="8"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <circle cx="30" cy="26" r="6"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <ellipse cx="24" cy="21" rx="10" ry="6"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Rain drops -->
+  <ellipse cx="15" cy="36" rx="1.5" ry="2.5" fill="var(--detail-color)"/>
+  <ellipse cx="20" cy="38" rx="1.5" ry="2.5" fill="var(--detail-color)"/>
+  <ellipse cx="25" cy="36" rx="1.5" ry="2.5" fill="var(--detail-color)"/>
+  <ellipse cx="30" cy="38" rx="1.5" ry="2.5" fill="var(--detail-color)"/>
+</svg>

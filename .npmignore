@@ -1,0 +1,8 @@
+node_modules/
+src/
+variants/
+build/
+flutter/
+docs/
+preview.html
+.gitignore

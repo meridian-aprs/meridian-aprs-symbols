@@ -1,0 +1,13 @@
+{
+  "name": "flat-nobadge",
+  "depth": "flat",
+  "description": "Flat icon in symbol color on transparent background. No badge.",
+  "icon": {
+    "fill": "symbol-color",
+    "stroke": "symbol-dark",
+    "strokeWidth": 1.5
+  },
+  "badge": {
+    "enabled": false
+  }
+}

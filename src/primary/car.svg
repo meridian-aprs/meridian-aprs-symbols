@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Body -->
+  <rect x="7" y="25" width="34" height="11" rx="5"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Cabin -->
+  <rect x="12" y="17" width="24" height="10" rx="4"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Windows -->
+  <rect x="14" y="19" width="9" height="6" rx="2"
+    fill="var(--detail-color)"/>
+  <rect x="25" y="19" width="9" height="6" rx="2"
+    fill="var(--detail-color)"/>
+  <!-- Left wheel -->
+  <circle cx="14" cy="36" r="5.5" fill="rgba(0,0,0,0.85)"/>
+  <circle cx="14" cy="36" r="2.5" fill="rgba(255,255,255,0.45)"/>
+  <!-- Right wheel -->
+  <circle cx="33" cy="36" r="5.5" fill="rgba(0,0,0,0.85)"/>
+  <circle cx="33" cy="36" r="2.5" fill="rgba(255,255,255,0.45)"/>
+</svg>

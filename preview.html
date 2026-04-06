@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian APRS — Symbol Preview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3348;
+    --text: #e8eaf0;
+    --text-muted: #7a8099;
+    --accent: #4f8ef7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 32px 24px 80px;
+  }
+
+  header { margin-bottom: 32px; }
+  .wordmark {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    color: var(--accent); letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: var(--text-muted); }
+
+  .note {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .note strong { color: var(--accent); }
+
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-title {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .variant-tag {
+    font-size: 10px; font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 3px 8px; border-radius: 4px;
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .variant-tag.secondary {
+    background: var(--surface2);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+
+  /* Symbol rows */
+  .symbol-table {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .symbol-row {
+    display: grid;
+    grid-template-columns: 160px repeat(5, 1fr);
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-radius: 10px;
+    gap: 8px;
+  }
+
+  .symbol-row.header-row {
+    background: transparent;
+    padding: 4px 16px;
+  }
+
+  .symbol-info { display: flex; flex-direction: column; gap: 2px; }
+  .symbol-name { font-size: 13px; font-weight: 500; }
+  .symbol-code {
+    font-size: 10px; color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .size-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .size-label {
+    font-size: 10px; color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+  }
+
+  .symbol-img {
+    display: block;
+    /* no forced size — let the img natural size show */
+  }
+
+  /* Map simulation */
+  .map-section { margin-bottom: 48px; }
+
+  .map-tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .map-tile {
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    min-height: 120px;
+    position: relative;
+  }
+
+  .map-tile .tile-label {
+    position: absolute;
+    top: 8px; left: 12px;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-family: 'IBM Plex Mono', monospace;
+    opacity: 0.6;
+  }
+
+  .map-tile.light { background: #c8d8a0; color: #333; }
+  .map-tile.light .tile-label { color: #333; }
+  .map-tile.dark { background: #1a2030; }
+  .map-tile.dark .tile-label { color: #aaa; }
+  .map-tile.satellite { background: #2d4a1e; }
+  .map-tile.satellite .tile-label { color: #aaa; }
+  .map-tile.terrain { background: #8b7355; }
+  .map-tile.terrain .tile-label { color: #fff; }
+
+  .map-symbol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .map-symbol-label {
+    font-size: 9px;
+    opacity: 0.7;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* Error state */
+  .error-img {
+    width: 32px; height: 32px;
+    background: #ff4444;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: white;
+    font-family: monospace;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">Meridian APRS</div>
+  <h1>Symbol Preview</h1>
+  <p class="subtitle">Live preview from <code>dist/svg/</code></p>
+</header>
+
+<div class="note">
+  <strong>Usage:</strong> Open this file from the repo root in a browser —
+  <code>open preview.html</code> or drag into browser.
+  Images load from <code>dist/svg/</code> (flat-badge, flat-nobadge, flat-nobadge-dark).
+  Run <code>npm run build</code> first if dist/ is empty, then refresh.<br><br>
+  <strong>Variant selection:</strong> Use <strong>flat-badge</strong> on any background (sparse maps).
+  Use <strong>flat-nobadge</strong> on light/terrain tiles and <strong>flat-nobadge-dark</strong> on dark/satellite tiles (dense maps).
+  Select based on user's badge preference + system color mode.
+</div>
+
+<div id="content"></div>
+
+<script>
+  const symbols = [
+    { name: 'House',      code: '/-', file: 'house' },
+    { name: 'Car',        code: '/>', file: 'car' },
+    { name: 'Person',     code: '/[', file: 'person' },
+    { name: 'Digipeater', code: '/#', file: 'digipeater' },
+    { name: 'Weather',    code: '/_', file: 'weather' },
+    { name: 'Winlink',    code: '/W', file: 'winlink' },
+  ];
+
+  const sizes = [16, 24, 32, 48, 64];
+
+  const variants = [
+    { id: 'flat-badge',        label: 'flat-badge',        primary: true },
+    { id: 'flat-nobadge',      label: 'flat-nobadge',       primary: false },
+    { id: 'flat-nobadge-dark', label: 'flat-nobadge-dark',  primary: false },
+  ];
+
+  // Each tile knows which no-badge variant to use based on background darkness
+  const mapTiles = [
+    { cls: 'light',     label: 'Light tiles', nobadgeVariant: 'flat-nobadge' },
+    { cls: 'dark',      label: 'Dark tiles',  nobadgeVariant: 'flat-nobadge-dark' },
+    { cls: 'satellite', label: 'Satellite',   nobadgeVariant: 'flat-nobadge-dark' },
+    { cls: 'terrain',   label: 'Terrain',     nobadgeVariant: 'flat-nobadge' },
+  ];
+
+  function imgPath(variant, file) {
+    // Files are nested under primary/ (and alternate/ in future)
+    // All 6 initial symbols are primary table symbols
+    return `dist/svg/${variant}/primary/${file}.svg`;
+  }
+
+  function makeImg(variant, file, size) {
+    const img = document.createElement('img');
+    img.src = imgPath(variant, file);
+    img.width = size;
+    img.height = size;
+    img.className = 'symbol-img';
+    img.alt = file;
+    img.onerror = function() {
+      this.style.display = 'none';
+      const err = document.createElement('div');
+      err.className = 'error-img';
+      err.textContent = '404';
+      this.parentNode.appendChild(err);
+    };
+    return img;
+  }
+
+  function buildContent() {
+    const content = document.getElementById('content');
+
+    // ── Per-variant size tables ────────────────────────────────────
+    variants.forEach(variant => {
+      const section = document.createElement('div');
+      section.className = 'section';
+
+      const header = document.createElement('div');
+      header.className = 'section-header';
+      const title = document.createElement('div');
+      title.className = 'section-title';
+      title.textContent = 'Size scale';
+      const tag = document.createElement('div');
+      tag.className = 'variant-tag' + (variant.primary ? '' : ' secondary');
+      tag.textContent = variant.label;
+      header.appendChild(title);
+      header.appendChild(tag);
+      section.appendChild(header);
+
+      const table = document.createElement('div');
+      table.className = 'symbol-table';
+
+      // Header row
+      const headerRow = document.createElement('div');
+      headerRow.className = 'symbol-row header-row';
+      const emptyCell = document.createElement('div');
+      headerRow.appendChild(emptyCell);
+      sizes.forEach(sz => {
+        const cell = document.createElement('div');
+        cell.className = 'size-cell';
+        const label = document.createElement('div');
+        label.className = 'size-label';
+        label.textContent = sz + 'px';
+        cell.appendChild(label);
+        headerRow.appendChild(cell);
+      });
+      table.appendChild(headerRow);
+
+      // Symbol rows
+      symbols.forEach(sym => {
+        const row = document.createElement('div');
+        row.className = 'symbol-row';
+
+        const info = document.createElement('div');
+        info.className = 'symbol-info';
+        const name = document.createElement('div');
+        name.className = 'symbol-name';
+        name.textContent = sym.name;
+        const code = document.createElement('div');
+        code.className = 'symbol-code';
+        code.textContent = sym.code;
+        info.appendChild(name);
+        info.appendChild(code);
+        row.appendChild(info);
+
+        sizes.forEach(sz => {
+          const cell = document.createElement('div');
+          cell.className = 'size-cell';
+          cell.appendChild(makeImg(variant.id, sym.file, sz));
+          row.appendChild(cell);
+        });
+
+        table.appendChild(row);
+      });
+
+      section.appendChild(table);
+      content.appendChild(section);
+    });
+
+    // ── Side by side comparison ────────────────────────────────────
+    const compSection = document.createElement('div');
+    compSection.className = 'section';
+    const compHeader = document.createElement('div');
+    compHeader.className = 'section-header';
+    const compTitle = document.createElement('div');
+    compTitle.className = 'section-title';
+    compTitle.textContent = 'Variant comparison · 32px';
+    compHeader.appendChild(compTitle);
+    compSection.appendChild(compHeader);
+
+    const compTable = document.createElement('div');
+    compTable.className = 'symbol-table';
+
+    const compCols = `160px repeat(${variants.length}, 1fr)`;
+
+    // Header
+    const compHeaderRow = document.createElement('div');
+    compHeaderRow.className = 'symbol-row header-row';
+    compHeaderRow.style.gridTemplateColumns = compCols;
+    const compEmpty = document.createElement('div');
+    compHeaderRow.appendChild(compEmpty);
+    variants.forEach(v => {
+      const cell = document.createElement('div');
+      cell.className = 'size-cell';
+      const tag = document.createElement('div');
+      tag.className = 'variant-tag' + (v.primary ? '' : ' secondary');
+      tag.textContent = v.label;
+      cell.appendChild(tag);
+      compHeaderRow.appendChild(cell);
+    });
+    compTable.appendChild(compHeaderRow);
+
+    symbols.forEach(sym => {
+      const row = document.createElement('div');
+      row.className = 'symbol-row';
+      row.style.gridTemplateColumns = compCols;
+
+      const info = document.createElement('div');
+      info.className = 'symbol-info';
+      const name = document.createElement('div');
+      name.className = 'symbol-name';
+      name.textContent = sym.name;
+      const code = document.createElement('div');
+      code.className = 'symbol-code';
+      code.textContent = sym.code;
+      info.appendChild(name);
+      info.appendChild(code);
+      row.appendChild(info);
+
+      variants.forEach(v => {
+        const cell = document.createElement('div');
+        cell.className = 'size-cell';
+        cell.appendChild(makeImg(v.id, sym.file, 32));
+        row.appendChild(cell);
+      });
+
+      compTable.appendChild(row);
+    });
+
+    compSection.appendChild(compTable);
+    content.appendChild(compSection);
+
+    // ── Map tile simulation ────────────────────────────────────────
+
+    function buildMapSection(titleText, tag, tagPrimary, getTileVariant) {
+      const mapSection = document.createElement('div');
+      mapSection.className = 'section';
+
+      const mapHeader = document.createElement('div');
+      mapHeader.className = 'section-header';
+      const mapTitle = document.createElement('div');
+      mapTitle.className = 'section-title';
+      mapTitle.textContent = titleText;
+      const mapTag = document.createElement('div');
+      mapTag.className = 'variant-tag' + (tagPrimary ? '' : ' secondary');
+      mapTag.textContent = tag;
+      mapHeader.appendChild(mapTitle);
+      mapHeader.appendChild(mapTag);
+      mapSection.appendChild(mapHeader);
+
+      const grid = document.createElement('div');
+      grid.className = 'map-tiles';
+
+      mapTiles.forEach(tile => {
+        const variantId = getTileVariant(tile);
+
+        const tileEl = document.createElement('div');
+        tileEl.className = 'map-tile ' + tile.cls;
+
+        const tileLabel = document.createElement('div');
+        tileLabel.className = 'tile-label';
+        tileLabel.textContent = tile.label;
+        tileEl.appendChild(tileLabel);
+
+        const spacer = document.createElement('div');
+        spacer.style.width = '100%';
+        spacer.style.height = '16px';
+        tileEl.appendChild(spacer);
+
+        symbols.forEach(sym => {
+          const mapSym = document.createElement('div');
+          mapSym.className = 'map-symbol';
+          mapSym.appendChild(makeImg(variantId, sym.file, 32));
+          const lbl = document.createElement('div');
+          lbl.className = 'map-symbol-label';
+          lbl.textContent = sym.name;
+          mapSym.appendChild(lbl);
+          tileEl.appendChild(mapSym);
+        });
+
+        // Show which variant is active when using the adaptive no-badge logic
+        if (getTileVariant !== null && variantId !== tag) {
+          const variantBadge = document.createElement('div');
+          variantBadge.style.cssText = 'position:absolute;bottom:8px;right:10px;font-size:9px;font-family:IBM Plex Mono,monospace;opacity:0.55;';
+          variantBadge.textContent = variantId;
+          tileEl.appendChild(variantBadge);
+        }
+
+        grid.appendChild(tileEl);
+      });
+
+      mapSection.appendChild(grid);
+      content.appendChild(mapSection);
+    }
+
+    // flat-badge works on all tile types
+    buildMapSection('Map tile simulation', 'flat-badge', true,
+      () => 'flat-badge');
+
+    // No-badge: select the right variant per tile based on background darkness
+    buildMapSection('Map tile simulation · adaptive no-badge', 'flat-nobadge / flat-nobadge-dark', false,
+      (tile) => tile.nobadgeVariant);
+  }
+
+  buildContent();
+</script>
+</body>
+</html>

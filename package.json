@@ -1,0 +1,44 @@
+{
+  "name": "@meridian-aprs/symbols",
+  "version": "1.0.0",
+  "description": "APRS symbol icon set for Meridian APRS and the broader APRS community",
+  "license": "CC-BY-4.0",
+  "main": "symbols.json",
+  "files": [
+    "dist/",
+    "symbols.json",
+    "SYMBOLS.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node build/build.js",
+    "build:force": "node build/build.js --force",
+    "build:svg": "node build/build.js --svg-only",
+    "build:png": "node build/build.js --png-only",
+    "build:sprite": "node build/build.js --sprite-only",
+    "build:iconify": "node build/build.js --iconify-only",
+    "build:flutter": "node build/build.js --flutter-only",
+    "build:variant": "node build/build.js --variant",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "aprs",
+    "amateur-radio",
+    "icons",
+    "svg",
+    "symbols"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meridian-aprs/meridian-aprs-symbols"
+  },
+  "homepage": "https://github.com/meridian-aprs/meridian-aprs-symbols",
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "glob": "^13.0.6",
+    "sharp": "^0.34.5",
+    "svgo": "^4.0.1"
+  }
+}
