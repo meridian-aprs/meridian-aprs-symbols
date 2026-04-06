@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ── Validate ──────────────────────────────────────────────────────────────
+  # On every push and PR: rebuild all SVGs from source and verify the
+  # committed dist/svg/ matches. Catches PRs that add/change a source SVG
+  # without rebuilding, or that hand-edit dist files directly.
+  validate:
+    name: Validate dist
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Rebuild all SVGs
+        run: node build/build.js --svg-only --force
+
+      - name: Verify committed SVGs match source
+        run: |
+          git diff --exit-code dist/svg/ || {
+            echo ""
+            echo "dist/svg/ is out of date with the source SVGs."
+            echo "Run 'npm run build:force' locally, review the output, and commit dist/."
+            exit 1
+          }
+
+  # ── Publish ───────────────────────────────────────────────────────────────
+  # On version tags (v*): publish to npm.
+  # Requires NPM_TOKEN secret set in repo settings.
+  publish:
+    name: Publish to npm
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      - run: npm ci
+
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

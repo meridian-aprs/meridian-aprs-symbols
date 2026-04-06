@@ -1,0 +1,17 @@
+{
+  "name": "flat-badge",
+  "depth": "flat",
+  "description": "Flat white icon on solid color rounded-rect badge with dark border. Default Meridian variant.",
+  "icon": {
+    "fill": "rgba(255,255,255,0.96)",
+    "stroke": "none",
+    "strokeWidth": 0
+  },
+  "badge": {
+    "enabled": true,
+    "fill": "symbol-color",
+    "stroke": "symbol-dark",
+    "strokeWidth": 3,
+    "cornerRadius": 8
+  }
+}

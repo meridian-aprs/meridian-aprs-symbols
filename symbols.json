@@ -1,0 +1,64 @@
+{
+  "symbols": [
+    {
+      "name": "House",
+      "aprs_code": "/-",
+      "table": "primary",
+      "filename": "house",
+      "color": "#e8a030",
+      "dark": "#7a4d00",
+      "category": "infrastructure",
+      "description": "Fixed station / home"
+    },
+    {
+      "name": "Car",
+      "aprs_code": "/>",
+      "table": "primary",
+      "filename": "car",
+      "color": "#3a8ef6",
+      "dark": "#0a3d8a",
+      "category": "vehicles",
+      "description": "Mobile station / vehicle"
+    },
+    {
+      "name": "Person",
+      "aprs_code": "/[",
+      "table": "primary",
+      "filename": "person",
+      "color": "#2ecc78",
+      "dark": "#0a6632",
+      "category": "people",
+      "description": "Portable station / person on foot"
+    },
+    {
+      "name": "Digipeater",
+      "aprs_code": "/#",
+      "table": "primary",
+      "filename": "digipeater",
+      "color": "#9b59f5",
+      "dark": "#4a0da0",
+      "category": "infrastructure",
+      "description": "APRS digipeater / repeater node"
+    },
+    {
+      "name": "Weather",
+      "aprs_code": "/_",
+      "table": "primary",
+      "filename": "weather",
+      "color": "#22c5e0",
+      "dark": "#006880",
+      "category": "weather",
+      "description": "Weather station"
+    },
+    {
+      "name": "Winlink",
+      "aprs_code": "/W",
+      "table": "primary",
+      "filename": "winlink",
+      "color": "#e84444",
+      "dark": "#8a0000",
+      "category": "communications",
+      "description": "Winlink gateway / email node"
+    }
+  ]
+}

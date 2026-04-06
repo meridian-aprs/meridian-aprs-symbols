@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Envelope body -->
+  <rect x="8" y="18" width="32" height="20" rx="3"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Envelope flap -->
+  <polyline points="8,18 24,30 40,18"
+    fill="none"
+    stroke="var(--detail-color)"
+    stroke-width="2.2"
+    stroke-linejoin="round"/>
+  <!-- Radio arc (inner) -->
+  <path d="M31,13 Q35,9 39,13"
+    fill="none"
+    stroke="var(--detail-color)"
+    stroke-width="2.2"
+    stroke-linecap="round"/>
+  <!-- Radio arc (outer) -->
+  <path d="M28,10 Q35,4 42,10"
+    fill="none"
+    stroke="var(--detail-color)"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    opacity="0.5"/>
+</svg>

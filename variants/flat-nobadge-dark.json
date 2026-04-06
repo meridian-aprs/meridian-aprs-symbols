@@ -1,0 +1,14 @@
+{
+  "name": "flat-nobadge-dark",
+  "depth": "flat",
+  "description": "Flat icon in symbol color on transparent background, optimized for dark map tiles. Detail elements (rain drops, signal arcs, windows) use light transparency so they read against dark backgrounds.",
+  "detailColor": "rgba(255,255,255,0.35)",
+  "icon": {
+    "fill": "symbol-color",
+    "stroke": "symbol-dark",
+    "strokeWidth": 1.5
+  },
+  "badge": {
+    "enabled": false
+  }
+}
