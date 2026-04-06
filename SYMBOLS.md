@@ -29,43 +29,45 @@ Symbols are prioritized by how commonly they appear on live APRS maps. Tier 1 pr
 
 | APRS Code | Name         | Category       | Notes                              |
 |-----------|--------------|----------------|------------------------------------|
-| `/&`      | Igate        | infrastructure | Internet gateway — very common     |
-| `/k`      | Truck        | vehicles       |                                    |
+| `/&`      | Igate        | infrastructure | HF/internet gateway — very common  |
+| `/k`      | Truck        | vehicles       | Pickup truck                       |
 | `/b`      | Bicycle      | vehicles       |                                    |
-| `/s`      | Boat/Ship    | vehicles       | Sailboat                           |
-| `/^`      | Airplane     | vehicles       | Light aircraft                     |
+| `/s`      | Boat/Ship    | vehicles       | Sailing vessel                     |
+| `/^`      | Airplane     | vehicles       | Large aircraft                     |
 | `/O`      | Balloon      | vehicles       | Weather/hobby balloon              |
-| `/`       | Motorcycle   | vehicles       |                                    |
-| `/R`      | RV/Camper    | vehicles       | Recreational vehicle               |
-| `/+`      | Hospital     | infrastructure | Cross / medical                    |
+| `/;`      | Campground   | infrastructure | Tent / campsite                    |
+| `/R`      | Recreational vehicle | vehicles | RV / camper                  |
+| `/+`      | Red Cross    | infrastructure | Hospital / medical cross           |
 | `/f`      | Fire Station | infrastructure |                                    |
 
 ### Tier 2 — Infrastructure (complete the network picture)
 
 | APRS Code | Name          | Category       | Notes                              |
 |-----------|---------------|----------------|------------------------------------|
-| `/I`      | APRS-IS Server| infrastructure | Internet server node               |
-| `/T`      | Antenna/Tower | infrastructure | Relay tower                        |
-| `/r`      | Antenna       | infrastructure | Radio antenna                      |
-| `/Y`      | Yacht         | vehicles       | Larger boat                        |
-| `/p`      | Shelter       | infrastructure | Emergency shelter                  |
-| `/!`      | Police        | infrastructure |                                    |
-| `/E`      | Eyeball       | people         | "I'm here" event marker            |
-| `/`       | Gateway       | communications | RF-to-internet gateway             |
+| `/r`      | Antenna       | infrastructure | Radio antenna / repeater           |
+| `/Y`      | Yacht         | vehicles       | Larger sailing vessel              |
+| `/a`      | Ambulance     | infrastructure |                                    |
+| `/h`      | Hospital      | infrastructure | Building with H                    |
+| `/u`      | 18-wheeler    | vehicles       | Semi truck                         |
+| `/j`      | Jeep          | vehicles       | 4WD vehicle                        |
+| `/p`      | Phone         | communications |                                    |
+| `/e`      | Eyeball       | people         | "I'm here" event marker            |
+| `/X`      | Helicopter    | vehicles       |                                    |
+| `/g`      | Glider        | vehicles       |                                    |
 
 ### Tier 3 — Specialty (meaningful for APRS power users)
 
-| APRS Code | Name        | Category       | Notes                              |
-|-----------|-------------|----------------|------------------------------------|
-| `/X`      | Helicopter  | vehicles       |                                    |
-| `/'`      | Small Plane | vehicles       |                                    |
-| `/u`      | Bus         | vehicles       |                                    |
-| `/=`      | Train       | vehicles       | Railroad engine                    |
-| `/g`      | Drone/UAV   | vehicles       |                                    |
-| `/S`      | Satellite   | infrastructure |                                    |
-| `/`       | Thunderstorm| weather        |                                    |
-| `/`       | Snow        | weather        |                                    |
-| `/`       | Earthquake  | weather        |                                    |
+| APRS Code | Name          | Category       | Notes                              |
+|-----------|---------------|----------------|------------------------------------|
+| `/\'`     | Crash site    | infrastructure | Airplane crash site (alternate)    |
+| `/=`      | Railroad      | vehicles       | Train / railroad engine            |
+| `/S`      | Satellite     | infrastructure | Space station                      |
+| `/`       | Thunderstorm  | weather        |                                    |
+| `/`       | Snow          | weather        |                                    |
+| `/J`      | Jogger        | people         | Runner on foot                     |
+| `/B`      | Blowing snow  | weather        |                                    |
+| `/T`      | Tornado       | weather        |                                    |
+| `/c`      | Incident command | infrastructure | ICS command post                |
 
 ### Alternate Table
 
