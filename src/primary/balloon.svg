@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Balloon envelope -->
+  <ellipse cx="24" cy="20" rx="12" ry="14"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Suspension lines -->
+  <path d="M22,34 L20,38 M26,34 L28,38"
+    fill="none"
+    stroke="var(--detail-color)"
+    stroke-width="1.5"
+    stroke-linecap="round"/>
+  <!-- Gondola -->
+  <rect x="19" y="38" width="10" height="6" rx="2"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+</svg>

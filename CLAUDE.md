@@ -76,6 +76,13 @@ STYLE_GUIDE.md      # Full authoring rules and pitfalls
 preview.html        # Local visual review tool
 ```
 
+## Iterating on symbol shapes with Claude
+
+- **Get a reference image first** — for any non-trivial shape (vehicles, animals, equipment), provide a silhouette or icon example before starting. It's worth more than any written description and prevents many blind iterations.
+- **Review PNG output after every write** — read `dist/png/flat-nobadge-dark/64/primary/<name>.png` after each build to catch shape problems immediately, not after several rounds.
+- **Nail the silhouette before adding curves** — start with polygons to get proportions and key features right, then smooth edges once the basic shape reads correctly.
+- **Commit at each approved milestone** — when a version looks good, commit it. This creates a rollback point so we're not reconstructing approved work from memory.
+
 ## Git workflow
 
 - Main branch requires PRs — always work on a feature branch

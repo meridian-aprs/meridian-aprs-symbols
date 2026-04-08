@@ -41,6 +41,26 @@
       "body": "<rect width=\"32\" height=\"20\" x=\"8\" y=\"18\" fill=\"#e84444\" stroke=\"#8a0000\" stroke-width=\"1.5\" rx=\"3\"/><path fill=\"none\" stroke=\"rgba(0,0,0,0.25)\" stroke-linejoin=\"round\" stroke-width=\"2.2\" d=\"m8 18 16 12 16-12\"/><path fill=\"none\" stroke=\"rgba(0,0,0,0.25)\" stroke-linecap=\"round\" stroke-width=\"2.2\" d=\"M31 13q4-4 8 0\"/><path fill=\"none\" stroke=\"rgba(0,0,0,0.25)\" stroke-linecap=\"round\" stroke-width=\"1.6\" d=\"M28 10q7-6 14 0\" opacity=\".5\"/>",
       "width": 48,
       "height": 48
+    },
+    "truck": {
+      "body": "<rect width=\"38\" height=\"11\" x=\"5\" y=\"26\" fill=\"#d07828\" stroke=\"#682800\" stroke-width=\"1.5\" rx=\"3\"/><rect width=\"22\" height=\"14\" x=\"5\" y=\"14\" fill=\"#d07828\" stroke=\"#682800\" stroke-width=\"1.5\" rx=\"3\"/><rect width=\"16\" height=\"8\" x=\"27\" y=\"20\" fill=\"#d07828\" stroke=\"#682800\" stroke-width=\"1.5\" rx=\"2\"/><rect width=\"11\" height=\"7\" x=\"8\" y=\"17\" fill=\"rgba(0,0,0,0.25)\" rx=\"2\"/><circle cx=\"13\" cy=\"37\" r=\"5.5\" fill=\"rgba(0,0,0,0.85)\"/><circle cx=\"13\" cy=\"37\" r=\"2.5\" fill=\"rgba(255,255,255,0.45)\"/><circle cx=\"35\" cy=\"37\" r=\"5.5\" fill=\"rgba(0,0,0,0.85)\"/><circle cx=\"35\" cy=\"37\" r=\"2.5\" fill=\"rgba(255,255,255,0.45)\"/>",
+      "width": 48,
+      "height": 48
+    },
+    "bicycle": {
+      "body": "<rect width=\"3\" height=\"7\" x=\"34\" y=\"18\" fill=\"#28b878\" stroke=\"#006038\" stroke-width=\"1.5\" rx=\"1\"/><rect width=\"11\" height=\"4\" x=\"13\" y=\"33\" fill=\"#28b878\" stroke=\"#006038\" stroke-width=\"1.5\" rx=\"2\"/><path fill=\"#28b878\" stroke=\"#006038\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M19 23h4l3 12h-4z\"/><path fill=\"#28b878\" stroke=\"#006038\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M33 23h4L26 35h-4z\"/><path fill=\"#28b878\" stroke=\"#006038\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M20 23h15v4H20z\"/><rect width=\"4\" height=\"13\" x=\"33\" y=\"22\" fill=\"#28b878\" stroke=\"#006038\" stroke-width=\"1.5\" rx=\"1\"/><circle cx=\"24\" cy=\"35\" r=\"3.5\" fill=\"#28b878\" stroke=\"#006038\" stroke-width=\"1.5\"/><circle cx=\"35\" cy=\"25\" r=\"3.5\" fill=\"#28b878\" stroke=\"#006038\" stroke-width=\"1.5\"/><rect width=\"9\" height=\"4\" x=\"14\" y=\"18\" fill=\"#28b878\" stroke=\"#006038\" stroke-width=\"1.5\" rx=\"1\"/><rect width=\"7\" height=\"5\" x=\"32\" y=\"14\" fill=\"#28b878\" stroke=\"#006038\" stroke-width=\"1.5\" rx=\"1\"/><circle cx=\"13\" cy=\"35\" r=\"8\" fill=\"rgba(0,0,0,0.85)\"/><circle cx=\"13\" cy=\"35\" r=\"3.5\" fill=\"rgba(255,255,255,0.45)\"/><circle cx=\"35\" cy=\"35\" r=\"8\" fill=\"rgba(0,0,0,0.85)\"/><circle cx=\"35\" cy=\"35\" r=\"3.5\" fill=\"rgba(255,255,255,0.45)\"/>",
+      "width": 48,
+      "height": 48
+    },
+    "balloon": {
+      "body": "<ellipse cx=\"24\" cy=\"20\" fill=\"#f0c030\" stroke=\"#7a5000\" stroke-width=\"1.5\" rx=\"12\" ry=\"14\"/><path fill=\"none\" stroke=\"rgba(0,0,0,0.25)\" stroke-linecap=\"round\" stroke-width=\"1.5\" d=\"m22 34-2 4m6-4 2 4\"/><rect width=\"10\" height=\"6\" x=\"19\" y=\"38\" fill=\"#f0c030\" stroke=\"#7a5000\" stroke-width=\"1.5\" rx=\"2\"/>",
+      "width": 48,
+      "height": 48
+    },
+    "motorcycle": {
+      "body": "<rect width=\"12\" height=\"4\" x=\"8\" y=\"22\" fill=\"#e05030\" stroke=\"#701800\" stroke-width=\"1.5\" rx=\"2\"/><ellipse cx=\"24\" cy=\"21\" fill=\"#e05030\" stroke=\"#701800\" stroke-width=\"1.5\" rx=\"7\" ry=\"5\"/><rect width=\"12\" height=\"6\" x=\"17\" y=\"27\" fill=\"#e05030\" stroke=\"#701800\" stroke-width=\"1.5\" rx=\"2\"/><path fill=\"#e05030\" stroke=\"#701800\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"m10 26 7 1-2 6H8zM31 15h4l2 15h-4z\"/><rect width=\"9\" height=\"4\" x=\"29\" y=\"11\" fill=\"#e05030\" stroke=\"#701800\" stroke-width=\"1.5\" rx=\"1.5\"/><ellipse cx=\"24\" cy=\"21\" fill=\"rgba(0,0,0,0.25)\" rx=\"4\" ry=\"3\"/><circle cx=\"13\" cy=\"36\" r=\"6.5\" fill=\"rgba(0,0,0,0.85)\"/><circle cx=\"13\" cy=\"36\" r=\"3\" fill=\"rgba(255,255,255,0.45)\"/><circle cx=\"35\" cy=\"36\" r=\"6.5\" fill=\"rgba(0,0,0,0.85)\"/><circle cx=\"35\" cy=\"36\" r=\"3\" fill=\"rgba(255,255,255,0.45)\"/>",
+      "width": 48,
+      "height": 48
     }
   },
   "aliases": {
@@ -79,6 +99,30 @@
     },
     "aprs-slashW": {
       "parent": "winlink"
+    },
+    "primary-truck": {
+      "parent": "truck"
+    },
+    "aprs-slashk": {
+      "parent": "truck"
+    },
+    "primary-bicycle": {
+      "parent": "bicycle"
+    },
+    "aprs-slashb": {
+      "parent": "bicycle"
+    },
+    "primary-balloon": {
+      "parent": "balloon"
+    },
+    "aprs-slashO": {
+      "parent": "balloon"
+    },
+    "primary-motorcycle": {
+      "parent": "motorcycle"
+    },
+    "aprs-slash<": {
+      "parent": "motorcycle"
     }
   }
 }

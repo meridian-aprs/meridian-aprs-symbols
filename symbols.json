@@ -59,6 +59,46 @@
       "dark": "#8a0000",
       "category": "communications",
       "description": "Winlink gateway / email node"
+    },
+    {
+      "name": "Truck",
+      "aprs_code": "/k",
+      "table": "primary",
+      "filename": "truck",
+      "color": "#d07828",
+      "dark": "#682800",
+      "category": "vehicles",
+      "description": "Truck / pickup mobile station"
+    },
+    {
+      "name": "Bicycle",
+      "aprs_code": "/b",
+      "table": "primary",
+      "filename": "bicycle",
+      "color": "#28b878",
+      "dark": "#006038",
+      "category": "vehicles",
+      "description": "Bicycle / cycling portable station"
+    },
+    {
+      "name": "Balloon",
+      "aprs_code": "/O",
+      "table": "primary",
+      "filename": "balloon",
+      "color": "#f0c030",
+      "dark": "#7a5000",
+      "category": "aerial",
+      "description": "High-altitude balloon / HAB tracker"
+    },
+    {
+      "name": "Motorcycle",
+      "aprs_code": "/<",
+      "table": "primary",
+      "filename": "motorcycle",
+      "color": "#e05030",
+      "dark": "#701800",
+      "category": "vehicles",
+      "description": "Motorcycle / moto mobile station"
     }
   ]
 }

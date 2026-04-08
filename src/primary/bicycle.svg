@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Steerer tube — head tube to handlebars (behind other elements) -->
+  <rect x="34" y="18" width="3" height="7" rx="1"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Chain stay -->
+  <rect x="13" y="33" width="11" height="4" rx="2"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Seat tube -->
+  <polygon points="19,23 23,23 26,35 22,35"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"
+    stroke-linejoin="round"/>
+  <!-- Down tube -->
+  <polygon points="33,23 37,23 26,35 22,35"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"
+    stroke-linejoin="round"/>
+  <!-- Top tube -->
+  <polygon points="20,23 35,23 35,27 20,27"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"
+    stroke-linejoin="round"/>
+  <!-- Front fork -->
+  <rect x="33" y="22" width="4" height="13" rx="1"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Bottom bracket — caps BB junction -->
+  <circle cx="24" cy="35" r="3.5"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Head tube — caps head tube junction -->
+  <circle cx="35" cy="25" r="3.5"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Seat (lower than handlebars — aligns with seat tube top) -->
+  <rect x="14" y="18" width="9" height="4" rx="1"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Handlebar (higher — at head tube level) -->
+  <rect x="32" y="14" width="7" height="5" rx="1"
+    fill="var(--symbol-color)"
+    stroke="var(--symbol-dark)"
+    stroke-width="1.5"/>
+  <!-- Rear wheel -->
+  <circle cx="13" cy="35" r="8" fill="rgba(0,0,0,0.85)"/>
+  <circle cx="13" cy="35" r="3.5" fill="rgba(255,255,255,0.45)"/>
+  <!-- Front wheel -->
+  <circle cx="35" cy="35" r="8" fill="rgba(0,0,0,0.85)"/>
+  <circle cx="35" cy="35" r="3.5" fill="rgba(255,255,255,0.45)"/>
+</svg>
